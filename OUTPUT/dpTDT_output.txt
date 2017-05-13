@@ -1,0 +1,5 @@
+"lap.stats" "exp.stats" "exp.shd.apprx"
+"DP.top1.sig.SNP" "IGR1218a_2" "IGR2016a_1" "IGR2008a_2"
+"DP.top2.sig.SNP" "IGR2010a_3" "TSC0101718" "IGR2011b_1"
+"DP.top3.sig.SNP" "IGR1169a_2" "IGR2008a_2" "IGR1118a_1"
+"utility.on20repeats" "0.12" "0.12" "0.22"
