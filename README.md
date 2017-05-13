@@ -15,7 +15,9 @@ dpTDT is a software to implement differential private (DP) mechanisms on transmi
 
 2. Add execute permissions for [dpTDT.sh](https://github.com/mwgrassgreen/dpTDT/blob/master/dpTDT.sh):     
 `cd dpTDT`    
+
 `chmod a+x dpTDT.sh`
+
 `chmod a+x formatchange.sh`
 
 # Usage 
