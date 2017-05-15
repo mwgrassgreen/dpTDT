@@ -9,7 +9,7 @@
 #-----------------------------------------------------------------------------
 # add CRAN (https://cran.r-project.org/) to sources.list
 export CRAN_URL=http://cran.stat.ucla.edu
-bash -c " echo -e '\n'deb ${CRAN_URL}/bin/linux/ubuntu  zesty/ >>  /etc/apt/sources.list "
+bash -c " echo -e '\n'deb ${CRAN_URL}/bin/linux/ubuntu xenial/ >>  /etc/apt/sources.list "
 
 # add key to sign CRAN pacakges
 # The Ubuntu archives on CRAN are signed with the key of 
@@ -39,7 +39,7 @@ apt-get install -y r-base-dev
 # install PLINK
 mkdir -p /opt
 cd /opt
-wget http://pngu.mgh.harvard.edu/~purcell/plink/dist/plink-1.07-x86_64.zip
+wget http://zzz.bwh.harvard.edu/plink/dist/plink-1.07-x86_64.zip
 unzip plink-1.07-x86_64.zip
 cd plink-1.07-x86_64
 ln -s /opt/plink-1.07-x86_64/plink /usr/local/bin/plink 
