@@ -37,6 +37,6 @@ eps = as.numeric(args[3]);
 DP.method.name = c("lap.stats", "exp.stats", "exp.shd.apprx") 
 
 result = DP.TDT.topKsnp.fn(file.name, N=N, K=K, eps=eps, DP.method.name=DP.method.name, B=20)
-write.table(result, file="dpTDT_output.txt")
+write.table(result, file="dpTDT_output.txt", quote=F)
 
 
