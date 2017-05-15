@@ -35,9 +35,6 @@ apt-get upgrade -y
 # install R base version
 apt-get install -y r-base
 
-# install R packages 
-apt-get install -y r-base-dev
-
 # install PLINK
 mkdir -p /opt
 cd /opt
