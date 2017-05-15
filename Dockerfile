@@ -1,5 +1,5 @@
 ### set the base image to Ubuntu
-FROM ubuntu:17.04
+FROM ubuntu:16.04
 
 ### File author / maintainer
 MAINTAINER Jihoon Kim "j5kim@ucsd.edu"
