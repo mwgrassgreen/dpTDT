@@ -28,7 +28,7 @@
 #------------------------------------------------------------------------------------------------------------------------------------------------
 
 args = commandArgs(trailingOnly=TRUE)
-source("R/dpTDT_fn.R")
+source("../R/dpTDT_fn.R")
 file.name = "tdt_count_data.txt"
 
 N = as.numeric(args[1]);

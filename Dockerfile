@@ -14,4 +14,4 @@ RUN apt-get update  -y                                  && \
     bash /opt/dpTDT/provision.sh 
 
 ### set a working directory to /opt/dpTDT
-WORKDIR /opt/dpTDT
+WORKDIR /opt/dpTDT/data

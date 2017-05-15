@@ -9,10 +9,10 @@
 #-----------------------------------------------------------------------------
 
 # an output from the test run
-TESTRUN_OUTPUT=/opt/dpTDT/dpTDT_output.txt
+TESTRUN_OUTPUT=/opt/dpTDT/data/dpTDT_output.txt
 
 # testrun dpTDT with example input
-cd /opt/dpTDT
+cd /opt/dpTDT/data
 rm -f $TESTRUN_OUTPUT
 bash /opt/dpTDT/dpTDT.sh --prefix=sample --N=25 --K=3 --eps=3
 

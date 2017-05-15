@@ -63,11 +63,11 @@ done
 #---------#---------#---------#---------#---------#---------#---------#---------
 # 1. formart change
 echo "Start formating: $(date)"
-./formatchange.sh $PREFIX $PLINK_
+../formatchange.sh $PREFIX $PLINK_
 echo "Finish formating: $(date)"
 # 2. main program
 echo "Start getting the output"
-Rscript R/dpTDT.R $N $K $eps
+Rscript ../R/dpTDT.R $N $K $eps
 echo "Done and the result is the file dpTDt_output.tx"
 
 
