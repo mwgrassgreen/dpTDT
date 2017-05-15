@@ -68,7 +68,7 @@ echo "Finish formating: $(date)"
 # 2. main program
 echo "Start getting the output"
 Rscript ../R/dpTDT.R $N $K $eps
-echo "Done and the result is the file dpTDt_output.tx"
+echo "Done and the result is the file dpTDT_output.txt"
 
 
  
