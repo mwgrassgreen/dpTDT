@@ -12,9 +12,8 @@ dpTDT is a software to implement differential private (DP) mechanisms on transmi
 ```
 
 2. Install Docker 
-```
-https://www.docker.com/community-edition#/download
-```
+
+[Docker](https://www.docker.com/community-edition#/download)
 
 3. Run the Docker with mounting the directory with MyData
 ```bash
