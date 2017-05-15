@@ -2,13 +2,14 @@
 
 #-----------------------------------------------------------------------------
 # Author : Jihoon Kim 
+# Email : j5kim@ucsd.edu
 # Description: A provisioning script to install R and PLINK for 
 #              differentially private Transmission Disequilibrium Test (dpTDT)
 #              docker
 #-----------------------------------------------------------------------------
 # add CRAN (https://cran.r-project.org/) to sources.list
 export CRAN_URL=http://cran.stat.ucla.edu
-bash -c " echo -e '\n'deb ${CRAN_URL}/bin/linux/ubuntu  trusty/ >>  /etc/apt/sources.list "
+bash -c " echo -e '\n'deb ${CRAN_URL}/bin/linux/ubuntu  zesty/ >>  /etc/apt/sources.list "
 
 # add key to sign CRAN pacakges
 # The Ubuntu archives on CRAN are signed with the key of 
@@ -20,7 +21,7 @@ apt-key adv --keyserver keyserver.ubuntu.com  --recv-keys E084DAB9
 apt-get update -y
 
 # add specfic PPA
-apt-get install -y python-software-properties 
+apt-get install -y python-software-properties software-properties-common wget zip
 add-apt-repository -y ppa:marutter/rdev
 
 # update
