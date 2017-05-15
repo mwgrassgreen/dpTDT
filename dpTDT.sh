@@ -33,7 +33,7 @@ Output:
 # 0. parameter setting
 # For format chage
 PREFIX=;
-PLINk_=plink;
+PLINK_=plink;
 # For R script
 N=;
 K=;
