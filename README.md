@@ -15,9 +15,12 @@ dpTDT is a software to implement differential private (DP) mechanisms on transmi
 
 [Docker](https://www.docker.com/community-edition#/download)
 
-3. Run the Docker with mounting the directory. Replace the local directory (/Users/johndoe/MyLocalDirectory) and the PLINK file prefix (sample) with your own version.
+3. Run the Docker with mounting the directory. Replace the local data directory (/Users/johndoe/MyLocalDirectory) and the PLINK data prefix (sample) with your own version.
 ```bash
-docker run -it -v /Users/johndoe/MyLocalDirectory:/opt/dpTDT/data j5kim/dptdt:latest bash /opt/dpTDT/dpTDT.sh --prefix=sample --N=25 --K=3 --eps=3
+export MY_LOCAL_DATA_DIR="/Users/johndoe/MyLocalDirectory"
+export MY_PLINK_DATA_PREFIX="sample"
+
+docker run -it -v $MY_LOCAL_DATA_DIR:/opt/dpTDT/data j5kim/dptdt:latest bash /opt/dpTDT/dpTDT.sh --prefix=$MY_PLINK_DATA_PREFIX --N=25 --K=3 --eps=3
 ```
 
 
