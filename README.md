@@ -6,10 +6,13 @@ dpTDT is a software to implement differential private (DP) mechanisms on transmi
 
 ## Simple run with Docker in 3 steps
 1. Prepare the PLINK format data in a local computer directory (replace sample.ped and sample.map with your own PLINK file names). Display PLINK data structure with selected rows
-(with head command) and columns (with cut command).
+(with head command) and columns (with cut command). For a test run, use the [sample TDT data in PLINK format](https://github.com/mwgrassgreen/dpTDT/tree/master/data).
 ```bash
-/Users/johndoe/MyLocalDirectory/sample.ped
-/Users/johndoe/MyLocalDirectory/sample.map
+$ export MY_LOCAL_DATA_DIR="/Users/johndoe/MyLocalDirectory"
+$ cd $MY_LOCAL_DATA_DIR
+
+$ wget https://github.com/mwgrassgreen/dpTDT/raw/master/data/sample.map
+$ wget https://github.com/mwgrassgreen/dpTDT/raw/master/data/sample.ped
 
 $ head -n 5 sample.map
 1 IGR1118a_1 0 274044
@@ -27,7 +30,7 @@ IBD058  470 438 444 2 2 3  3  3  3  1  1  2  2
 
 ```
 
-2. [Install Docker](https://www.docker.com/community-edition#/download). This is one-time job. Run the hello-world docker to test if docker is working correctly. The desired output is show below.
+2. [Install Docker](https://www.docker.com/community-edition#/download). This is one-time job. Run the hello-world docker to test if docker is working correctly. The desired output is shown below.
 ```bash
 $ docker run -it hello-world
 
@@ -58,6 +61,7 @@ For more examples and ideas, visit:
 ```bash
 $ export MY_LOCAL_DATA_DIR="/Users/johndoe/MyLocalDirectory"
 $ export MY_PLINK_DATA_PREFIX="sample"
+$ cd $MY_LOCAL_DATA_DIR
 
 $ docker run -it -v $MY_LOCAL_DATA_DIR:/opt/dpTDT/data j5kim/dptdt:latest bash /opt/dpTDT/dpTDT.sh --prefix=$MY_PLINK_DATA_PREFIX --N=25 --K=3 --eps=3
 ```
