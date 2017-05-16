@@ -14,16 +14,16 @@ PLINK_=$2
 ######################################################################################################################################################
 ### make a for loop to run all snps
 # get the snp count
-wc -l  ${PREFIX}.map | awk '{print $1}' > snp_count.temp
-# put the count number into a file
-snp_count=`cat snp_count.temp`
+snp_count=$(wc -l  ${PREFIX}.map | awk '{print $1}')
+
 # get family ID list with 3 family members
-awk  '{  print $1, $2, $3, $4, $6}' ${PREFIX}.ped  | awk '{print $1}'  | sort | uniq -c | awk '{if($1==3) print $2}'  > rsxxxxxxx_3men.familyid
+rsxxxxxxx_3men_familyid=$(awk  '{  print $1, $2, $3, $4, $6}' ${PREFIX}.ped  | awk '{print $1}'  | sort | uniq -c | awk '{if($1==3) print $2}') 
 
 # use plink to calculate b and c
- $PLINK_ --file ${PREFIX} --tdt   --out rsxxxxxxx --noweb --allow-no-sex
+# ln -s /dev/null rsxxxxxxx.log 
+ $PLINK_ --file ${PREFIX} --tdt   --out rsxxxxxxx --noweb --allow-no-sex 
  # remove the header 
- sed 1d rsxxxxxxx.tdt > rsxxxxxxx_tdt.temp
+ rsxxxxxxx_tdt_temp=$(sed 1d rsxxxxxxx.tdt)
 
 # for loop calculate all snps
  for count in $(seq 1 $snp_count)  ; do
@@ -33,37 +33,41 @@ awk  '{  print $1, $2, $3, $4, $6}' ${PREFIX}.ped  | awk '{print $1}'  | sort | 
     export ALLELE2=`awk  '{  print $1, $2, $3, $4, $6,  $("'"$count"'"*2+5)"  "$("'"$count"'"*2+6)}' ${PREFIX}.ped | sed 1d | awk '{ print $6}' | sort -r| uniq | sed -n '2p' `
     
     # change  allele from "A T C G" into "M m", and sort within a line (this will change "m M" to "M m")
-    awk  '{  print $1, $2, $3, $4, $6,  $("'"$count"'"*2+5)"  "$("'"$count"'"*2+6)}' ${PREFIX}.ped | awk '{ print $6,$7}' | sed "s/$ALLELE1/M/g" | sed "s/$ALLELE2/m/g" | perl -ane '$,=" "; print sort @F; print "\n";' > allele.temp
+    allele_temp=$(awk  '{  print $1, $2, $3, $4, $6,  $("'"$count"'"*2+5)"  "$("'"$count"'"*2+6)}' ${PREFIX}.ped | awk '{ print $6,$7}' | sed "s/$ALLELE1/M/g" | sed "s/$ALLELE2/m/g" | perl -ane '$,=" "; print sort @F; print "\n";')
     # get the famID individual ID, Paternal ID, Maternal ID, pheno
-    awk  '{  print $1, $2, $3, $4, $6  }' ${PREFIX}.ped > family_info.temp
+    family_info_temp=$(awk  '{  print $1, $2, $3, $4, $6  }' ${PREFIX}.ped)
     # paste the two file together and make a uniq format
-    paste family_info.temp allele.temp | awk  '{  print $1, $2, $3, $4, $5,  $6"_"$7}'  > rsxxxxxxx.temp
+    rsxxxxxxx_temp=$(paste <(echo "$family_info_temp") <(echo "$allele_temp") | awk  '{  print $1, $2, $3, $4, $5,  $6"_"$7}')
 
     # make a genotype file group by family and sort the family member as first parents then child genotype 
-	  cat rsxxxxxxx_3men.familyid  | \
-	  while read LINE; do 
-	     export GENO=`grep $LINE rsxxxxxxx.temp | sort -k3 | awk '{print $6}' | tr '\n' '\t'`
-	     echo "$GENO$LINE" | awk '{OFS="\t"; print $4,$1,$2,$3}'
-	  done > rsxxxxxxx_3fam.genotype
+      rsxxxxxxx_3fam_genotype=$(
+      echo "$rsxxxxxxx_3men_familyid"  | \
+      while read LINE; do 
+         export GENO=`echo "$rsxxxxxxx_temp" | grep $LINE  | sort -k3 | awk '{print $6}' | tr '\n' '\t'`
+         echo "$GENO$LINE" | awk '{OFS="\t"; print $4,$1,$2,$3}'
+      done
+      )
 
 
     # make a format for pattern count file and family genotype file
-	  awk '$2!="0_0" && $3!="0_0" && $4!="0_0" {OFS="\t"; print $2, $3, $4}' rsxxxxxxx_3fam.genotype | sort | uniq -c | awk  '{ print  $2"+"$3"="$4, $1}' | tr '\n' '\t'  > pattern_count.temp
-	  awk  '{ print  $1, $2"+"$3"="$4}' rsxxxxxxx_3fam.genotype > rsxxxxxxx_3fam.genotype_row 
+      pattern_count_temp=$(echo "$rsxxxxxxx_3fam_genotype" | awk '$2!="0_0" && $3!="0_0" && $4!="0_0" {OFS="\t"; print $2, $3, $4}' | sort | uniq -c | awk  '{ print  $2"+"$3"="$4, $1}' | tr '\n' '\t')
+      rsxxxxxxx_3fam_genotype_row=$(echo "$rsxxxxxxx_3fam_genotype" | awk  '{ print  $1, $2"+"$3"="$4}')
 
     # Get snp ID 
     export RSID=`sed -n "${count}p" ${PREFIX}.map | awk '{print $2}'  `
     # Get the b and c value from plink tdt output for each snp
-    grep $RSID rsxxxxxxx_tdt.temp | awk '{print $6,$7}' > b_c.temp
+    b_c_temp=$(echo "$rsxxxxxxx_tdt_temp" | grep $RSID | awk '{print $6,$7}')
 
-	  # paste b & c value and pattern_count.temp into one row
-	  paste  b_c.temp pattern_count.temp >> fam_genotype_pattern.temp
+
+      # paste b & c value and pattern_count.temp into one row
+      paste <(echo "$b_c_temp") <(echo "$pattern_count_temp") >> fam_genotype_pattern.temp
 
  
 done
 
  # merge the map file and genotype pattern file
  paste ${PREFIX}.map fam_genotype_pattern.temp > tdt_count_data.txt
+ #paste <(cat ${PREFIX}.map) <(echo "$am_genotype_pattern_temp")> tdt_count_data.txt
  # the header are Chr, SNP_id, Genetic_distance, Base-pair_position and family_genotype_pattern.
 
  # clear the process files
