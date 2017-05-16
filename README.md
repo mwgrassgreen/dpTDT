@@ -57,7 +57,7 @@ For more examples and ideas, visit:
 
 ```
 
-3. Run the Docker with mounting the directory. Replace the local data directory (/Users/johndoe/MyLocalDirectory) and the PLINK data prefix (sample) with your own version.
+3. Run the Docker with directory mounting. Replace the local data directory (/Users/johndoe/MyLocalDirectory) and the PLINK data prefix (sample) with your own version.
 ```bash
 $ export MY_LOCAL_DATA_DIR="/Users/johndoe/MyLocalDirectory"
 $ export MY_PLINK_DATA_PREFIX="sample"
