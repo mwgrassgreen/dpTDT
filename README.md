@@ -5,7 +5,8 @@ dpTDT is a software to implement differential private (DP) mechanisms on transmi
 
 
 ## Simple run with Docker in 3 steps
-1. Prepare the PLINK format data in a local computer directory (replace sample.ped and sample.map with your own PLINK file names)
+1. Prepare the PLINK format data in a local computer directory (replace sample.ped and sample.map with your own PLINK file names). Display PLINK data structure with selected rows
+(with head command) and columns (with cut command).
 ```bash
 /Users/johndoe/MyLocalDirectory/sample.ped
 /Users/johndoe/MyLocalDirectory/sample.map
@@ -26,9 +27,9 @@ IBD058  470 438 444 2 2 3  3  3  3  1  1  2  2
 
 ```
 
-2. Install Docker. This is one-time job.
+2. [Install Docker](https://www.docker.com/community-edition#/download). This is one-time job. Run the hello-world docker to test if docker is working correctly.
 ```bash
-[Docker](https://www.docker.com/community-edition#/download)
+docker run -it hello-world
 ```
 
 3. Run the Docker with mounting the directory. Replace the local data directory (/Users/johndoe/MyLocalDirectory) and the PLINK data prefix (sample) with your own version.
