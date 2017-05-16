@@ -29,7 +29,7 @@ IBD058  470 438 444 2 2 3  3  3  3  1  1  2  2
 
 2. [Install Docker](https://www.docker.com/community-edition#/download). This is one-time job. Run the hello-world docker to test if docker is working correctly. The desired output is show below.
 ```bash
-docker run -it hello-world
+$ docker run -it hello-world
 
 
 Hello from Docker!
@@ -56,10 +56,10 @@ For more examples and ideas, visit:
 
 3. Run the Docker with mounting the directory. Replace the local data directory (/Users/johndoe/MyLocalDirectory) and the PLINK data prefix (sample) with your own version.
 ```bash
-export MY_LOCAL_DATA_DIR="/Users/johndoe/MyLocalDirectory"
-export MY_PLINK_DATA_PREFIX="sample"
+$ export MY_LOCAL_DATA_DIR="/Users/johndoe/MyLocalDirectory"
+$ export MY_PLINK_DATA_PREFIX="sample"
 
-docker run -it -v $MY_LOCAL_DATA_DIR:/opt/dpTDT/data j5kim/dptdt:latest bash /opt/dpTDT/dpTDT.sh --prefix=$MY_PLINK_DATA_PREFIX --N=25 --K=3 --eps=3
+$ docker run -it -v $MY_LOCAL_DATA_DIR:/opt/dpTDT/data j5kim/dptdt:latest bash /opt/dpTDT/dpTDT.sh --prefix=$MY_PLINK_DATA_PREFIX --N=25 --K=3 --eps=3
 ```
 
 
