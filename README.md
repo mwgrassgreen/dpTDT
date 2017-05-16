@@ -11,11 +11,11 @@ dpTDT is a software to implement differential private (DP) mechanisms on transmi
 /Users/johndoe/MyLocalDirectory/sample.map
 ```
 
-2. Install Docker 
+2. Install Docker. This is one-time job.
 
 [Docker](https://www.docker.com/community-edition#/download)
 
-3. Run the Docker with mounting the directory
+3. Run the Docker with mounting the directory. Replace the local directory (/Users/johndoe/MyLocalDirectory) and the PLINK file prefix (sample) with your own version.
 ```bash
 docker run -it -v /Users/johndoe/MyLocalDirectory:/opt/dpTDT/data j5kim/dptdt:latest bash /opt/dpTDT/dpTDT.sh --prefix=sample --N=25 --K=3 --eps=3
 ```
