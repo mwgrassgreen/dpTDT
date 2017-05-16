@@ -9,11 +9,27 @@ dpTDT is a software to implement differential private (DP) mechanisms on transmi
 ```bash
 /Users/johndoe/MyLocalDirectory/sample.ped
 /Users/johndoe/MyLocalDirectory/sample.map
+
+$ head -n 5 sample.map
+1 IGR1118a_1 0 274044
+1 IGR1119a_1 0 274541
+1 IGR1143a_1 0 286593
+1 IGR1144a_1 0 287261
+1 IGR1169a_2 0 299755
+
+$ head -n 5 sample.ped | cut -f 1-10
+IBD054  430 0 0 1 0 1  3  3  1  4  1  4  2
+IBD054  412 430 431 2 2 1  3  1  3  4  1  4  2
+IBD054  431 0 0 2 0 3  3  3  3  1  1  2  2
+IBD058  438 0 0 1 0 3  3  3  3  1  1  2  2
+IBD058  470 438 444 2 2 3  3  3  3  1  1  2  2
+
 ```
 
 2. Install Docker. This is one-time job.
-
+```bash
 [Docker](https://www.docker.com/community-edition#/download)
+```
 
 3. Run the Docker with mounting the directory. Replace the local data directory (/Users/johndoe/MyLocalDirectory) and the PLINK data prefix (sample) with your own version.
 ```bash
