@@ -46,8 +46,8 @@ N=$(echo "$rsxxxxxxx_3men_familyid" | wc -l)
 done
 
  # merge the map file and genotype pattern file
- paste ${PREFIX}.map fam_genotype_pattern.temp > tdt_count_data.txt
- echo "N =$N " >> tdt_count_data.txt
+ paste ${PREFIX}.map fam_genotype_pattern.temp > ./data/tdt_count_data.txt
+ echo "N =$N " >> ./data/tdt_count_data.txt
  # the header are Chr, SNP_id, Genetic_distance, Base-pair_position and family_genotype_pattern.
 
  # clear the process files
