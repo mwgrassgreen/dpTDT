@@ -10,17 +10,14 @@ usage="
     Please contact mengw1@stanford.edu for bugs.
 #---------#---------#---------#---------#---------#---------#---------#---------
 Usage: 
-	./dpTDT.sh [--plink=/usr/local/bin/plink] --prefix --N --K --eps
-# (The parameters in [ ] are optinal if the corresponding command is in system path.)
+	./dpTDT.sh --prefix  --K --eps
 #---------#---------#---------#---------#---------#---------#---------#---------
 Options:
-  --plink=plink_loc	Plink location (Optional if plink is in system paths.)
   --prefix=prefix_of_map_ped_files The file name of the .map and .ped.
-  --N=number_family	The number of families.
   --K=number_snp    The number of most significant SNPs to output.
   --eps=privacy_budget 	The privacy budget (recommend eps <=3 and for large dataset to set eps smaller).
 For the example data: 
-  ./dpTDT.sh [--plink=/usr/local/bin/plink] --prefix=sample --N=25 --K=3 --eps=eps
+  ./dpTDT.sh --prefix=./data/sample --K=3 --eps=3
 #---------#---------#---------#---------#---------#---------#---------#---------
 Output:
          The output is the selected top K most significant SNPs under DP from the methods--
@@ -33,9 +30,7 @@ Output:
 # 0. parameter setting
 # For format chage
 PREFIX=;
-PLINK_=plink;
 # For R script
-N=;
 K=;
 eps=;
 #---------#---------#---------#---------#---------#---------#---------#---------
@@ -46,10 +41,6 @@ while test -n "${1}"; do
 	case ${1} in
 		--prefix=*)
 			PREFIX=`echo "${1}" | ${SED_} -e 's/[^=]*=//'`;;
-		--plink=*)
-			PLINK_=`echo "${1}" | ${SED_} -e 's/[^=]*=//'`;;
-		--N=*)
-			N=`echo "${1}" | ${SED_} -e 's/[^=]*=//'`;;
 		--K=*)
 			K=`echo "${1}" | ${SED_} -e 's/[^=]*=//'`;;
 		--eps=*)
@@ -63,11 +54,11 @@ done
 #---------#---------#---------#---------#---------#---------#---------#---------
 # 1. formart change
 echo "Start formating: $(date)"
-../formatchange.sh $PREFIX $PLINK_
+./formatchange.sh $PREFIX
 echo "Finish formating: $(date)"
 # 2. main program
 echo "Start getting the output"
-Rscript ../R/dpTDT.R $N $K $eps
+Rscript ./R/dpTDT.R $K $eps
 echo "Done and the result is the file dpTDT_output.txt"
 
 
