@@ -54,7 +54,7 @@ done
 #---------#---------#---------#---------#---------#---------#---------#---------
 # 1. formart change
 echo "Start formating: $(date)"
-./code/formatchange.sh $PREFIX
+bash ./code/formatchange.sh $PREFIX
 echo "Finish formating: $(date)"
 # 2. main program
 echo "Start getting the output"
