@@ -27,8 +27,8 @@
 #------------------------------------------------------------------------------------------------------------------------------------------------
 
 args = commandArgs(trailingOnly=TRUE)
-source("../R/dpTDT_fn.R")
-file.name = "../data/tdt_count_data.txt"
+source("./R/dpTDT_fn.R")
+file.name = "./data/tdt_count_data.txt"
 
 K = as.numeric(args[1]);
 eps = as.numeric(args[2]);
