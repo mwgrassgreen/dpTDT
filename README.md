@@ -89,18 +89,14 @@ $ docker run -it -v $MY_LOCAL_DATA_DIR:/opt/dpTDT/data j5kim/dptdt:latest bash /
 
 
 # Options
-  --plink=plink\_loc	Plink location (Optional if plink is in system paths.)
-  
   --prefix=prefix\_of\_map\_ped\_files The file name of the .map and .ped.
-  
-  --N=number\_family	The number of families.
   
   --K=number\_snp    The number of most significant SNPs to output.
   
   --eps=privacy\_budget 	The privacy budget (recommend eps <=3 and for large dataset to set eps smaller).
   
 # Example
-  ./dpTDT.sh [--plink=/usr/local/bin/plink] --prefix=sample --N=25 --K=3 --eps=3
+  ./dpTDT.sh  --prefix=./data/sample --K=3 --eps=3
 
 # Output
  The output is the selected top K most significant SNPs under DP from the methods
