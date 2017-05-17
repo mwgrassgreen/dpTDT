@@ -14,6 +14,8 @@ snp_count=$(wc -l  ${PREFIX}.map | awk '{print $1}')
 
 # get family ID list with 3 family members
 rsxxxxxxx_3men_familyid=$(awk  '{  print $1, $2, $3, $4, $6}' ${PREFIX}.ped  | awk '{print $1}'  | sort | uniq -c | awk '{if($1==3) print $2}') 
+# get family number count
+N=$(echo "$rsxxxxxxx_3men_familyid" | wc -l)
 
 # for loop calculate all snps
  for count in $(seq 1 $snp_count)  ; do
@@ -45,6 +47,7 @@ done
 
  # merge the map file and genotype pattern file
  paste ${PREFIX}.map fam_genotype_pattern.temp > tdt_count_data.txt
+ echo "N =$N " >> tdt_count_data.txt
  # the header are Chr, SNP_id, Genetic_distance, Base-pair_position and family_genotype_pattern.
 
  # clear the process files
