@@ -70,7 +70,6 @@ $ docker run -it -v $MY_LOCAL_DATA_DIR:/opt/dpTDT/data j5kim/dptdt:latest bash /
 
 ## Setup
 ### Dependencies 
-* [plink](https://www.cog-genomics.org/plink2) (version >= 1.90).
 * [R](https://www.r-project.org/) (version >= 3.3.0)
 
 
@@ -84,8 +83,7 @@ $ docker run -it -v $MY_LOCAL_DATA_DIR:/opt/dpTDT/data j5kim/dptdt:latest bash /
 `chmod a+x formatchange.sh`
 
 # Usage 
-	./dpTDT.sh [--plink=/usr/local/bin/plink] --prefix --N --K --eps
-(The parameter in [ ] is optinal if the corresponding command is in the system path.)
+	./dpTDT.sh  --prefix --K --eps
 
 
 # Options
