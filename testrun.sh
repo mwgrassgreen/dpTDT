@@ -62,20 +62,20 @@ Rscript R/testrun.R $K $eps
 echo "Done and the result is the file dpTDT_output.txt"
 
 
-echo "==========================================================="
+echo "================================================================"
 echo "Desired output:"
 cat testrun/desired_output.txt 
 
-echo "==========================================================="
+echo "================================================================"
 echo "Testrun output:"
 cat data/dpTDT_output.txt
 
-echo "==========================================================="
-echo "Compare md5 values of desired output and testrun output"
+echo "================================================================"
+echo "Compare md5 values of desired output and testrun output:"
 md5 testrun/desired_output.txt 
 md5 data/dpTDT_output.txt
 
-echo "==========================================================="
+echo "================================================================"
 echo "Content difference between desired output and testrun output:"
 diff testrun/desired_output.txt data/dpTDT_output.txt
 
