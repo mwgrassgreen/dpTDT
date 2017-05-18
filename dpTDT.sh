@@ -17,7 +17,7 @@ Options:
   --K=number_snp    The number of most significant SNPs to output.
   --eps=privacy_budget 	The privacy budget (recommend eps <=3 and for large dataset to set eps smaller).
 For the example data: 
-  ./dpTDT.sh --prefix=./data/sample --K=3 --eps=3
+  ./dpTDT.sh --prefix=sample --K=3 --eps=3
 #---------#---------#---------#---------#---------#---------#---------#---------
 Output:
          The output is the selected top K most significant SNPs under DP from the methods--
