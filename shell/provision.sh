@@ -34,7 +34,3 @@ apt-get upgrade -y
 
 # install R base version
 apt-get install -y r-base
-
-# create directoris
-mkdir -p /opt/dpTDT
-mkdir -p /opt/dpTDT/data
