@@ -80,7 +80,7 @@ $ docker run -it -v $MY_LOCAL_DATA_DIR:/opt/dpTDT/data j5kim/dptdt:latest bash /
 2. Add execute permissions for [dpTDT.sh](https://github.com/mwgrassgreen/dpTDT/blob/master/dpTDT.sh):     
 `cd dpTDT`    
 `chmod a+x dpTDT.sh`
-`chmod a+x formatchange.sh`
+`chmod a+x ./code/formatchange.sh`
 
 # Usage 
 	./dpTDT.sh  --prefix --K --eps
