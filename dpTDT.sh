@@ -54,11 +54,11 @@ done
 #---------#---------#---------#---------#---------#---------#---------#---------
 # 1. formart change
 echo "Start formating: $(date)"
-bash ./code/formatchange.sh $PREFIX
+bash shell/formatchange.sh $PREFIX
 echo "Finish formating: $(date)"
 # 2. main program
 echo "Start getting the output"
-Rscript ./code/dpTDT.R $K $eps
+Rscript R/dpTDT.R $K $eps
 echo "Done and the result is the file dpTDT_output.txt"
 
 
