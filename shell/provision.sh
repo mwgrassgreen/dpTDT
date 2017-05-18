@@ -35,14 +35,6 @@ apt-get upgrade -y
 # install R base version
 apt-get install -y r-base
 
-# install PLINK
-mkdir -p /opt
-cd /opt
-wget http://zzz.bwh.harvard.edu/plink/dist/plink-1.07-x86_64.zip
-unzip plink-1.07-x86_64.zip
-cd plink-1.07-x86_64
-ln -s /opt/plink-1.07-x86_64/plink /usr/local/bin/plink 
-
 # create directoris
 mkdir -p /opt/dpTDT
 mkdir -p /opt/dpTDT/data
