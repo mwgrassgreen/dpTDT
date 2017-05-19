@@ -71,8 +71,8 @@ echo "Testrun output:"
 cat workspace/dpTDT_output.txt
 
 echo "================================================================"
-echo "Content difference between desired output and testrun output: "
-echo "  (no contents means they are equal)"
+echo "Content difference between desired output and testrun output"
+echo "(empty diff content below means two output files are identical):"
 diff example/desired_output.txt workspace/dpTDT_output.txt
 
 # return 0 if the test run output is equal to the desired output
