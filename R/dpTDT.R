@@ -28,13 +28,13 @@
 
 args = commandArgs(trailingOnly=TRUE)
 source("R/dpTDT_fn.R")
-file.name = "data/tdt_count_data.txt"
+file.name = "workspace/tdt_count_data.txt"
 
 K = as.numeric(args[1]);
 eps = as.numeric(args[2]);
 DP.method.name = c("lap.stats", "exp.stats", "exp.shd.apprx") 
 
 result = DP.TDT.topKsnp.fn(file.name, K=K, eps=eps, DP.method.name=DP.method.name, B=20)
-write.table(result, file="data/dpTDT_output.txt", quote=F)
+write.table(result, file="workspace/dpTDT_output.txt", quote=F)
 
 
