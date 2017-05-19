@@ -2,3 +2,4 @@
 .DS_Store
 !testrun/desired_output.txt
 !workspace/
+workspace/*
