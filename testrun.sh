@@ -59,21 +59,21 @@ echo "Finish formating: $(date)"
 # 2. main program
 echo "Start getting the output"
 Rscript R/testrun.R $K $eps
-echo "Done and the result is the file dpTDT_output.txt\n"
+echo "Done and the result is the file dpTDT_output.txt"
 
 
 echo "================================================================"
 echo "Desired output:"
-cat testrun/desired_output.txt 
+cat example/desired_output.txt 
 
 echo "================================================================"
 echo "Testrun output:"
-cat data/dpTDT_output.txt
+cat workspace/dpTDT_output.txt
 
 echo "================================================================"
-echo "Content difference between desired output and testrun output: "
-echo "  (no contents means they are equal)\n"
-diff testrun/desired_output.txt data/dpTDT_output.txt
+echo "Content difference between desired output and testrun output"
+echo "(empty diff content below means two output files are identical):"
+diff example/desired_output.txt workspace/dpTDT_output.txt
 
 # return 0 if the test run output is equal to the desired output
 #        non-zero otherwise
