@@ -58,13 +58,23 @@ For more examples and ideas, visit:
 ```
 
 3. Run the Docker with directory mounting. Replace the local data directory (/Users/johndoe/MyLocalDirectory) and the PLINK data prefix (sample) with your own version.
-```bash
-$ export MY_LOCAL_DATA_DIR="/Users/johndoe/MyLocalDirectory"
-$ export MY_PLINK_DATA_PREFIX="sample"
-$ cd $MY_LOCAL_DATA_DIR
 
-$ docker run -it -v $MY_LOCAL_DATA_DIR:/opt/dpTDT/data j5kim/dptdt:latest bash /opt/dpTDT/dpTDT.sh --prefix=$MY_PLINK_DATA_PREFIX --N=25 --K=3 --eps=3
+```bash
+export FULLPATH_TO_PLINK_FILE="/Users/johndoe/MyLocalDirectory"
+export PINK_FILE_PREFIX="sample"
+docker run -it -v $FULLPATH_TO_PLINK_FILE:/root j5kim/dptdt:latest bash /opt/dpTDT/dpTDT.sh --prefix=/root/${PINK_FILE_PREFIX} --K=3 --eps=3
 ```
+
+Test run with example data
+```bash
+export FULLPATH_TO_PLINK_FILE="/Users/johndoe/MyLocalDirectory"
+cd $FULLPATH_TO_PLINK_FILE
+wget https://github.com/mwgrassgreen/dpTDT/raw/master/example/sample.map
+wget https://github.com/mwgrassgreen/dpTDT/raw/master/example/sample.ped
+export PINK_FILE_PREFIX="sample"
+docker run -it -v $FULLPATH_TO_PLINK_FILE:/root j5kim/dptdt:latest bash /opt/dpTDT/testrun.sh --prefix=/root/${PINK_FILE_PREFIX} --K=3 --eps=3
+```
+
 
 
 
