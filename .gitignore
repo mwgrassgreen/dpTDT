@@ -1,3 +1,4 @@
 *.txt
+*.tmp
 .DS_Store
 !testrun/desired_output.txt
