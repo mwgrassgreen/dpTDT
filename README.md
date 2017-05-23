@@ -62,6 +62,7 @@ For more examples and ideas, visit:
 ```bash
 export FULLPATH_TO_PLINK_FILE="/Users/johndoe/MyLocalDirectory"
 export PINK_FILE_PREFIX="sample"
+docker pull j5kim/dptdt:latest
 docker run -it -v $FULLPATH_TO_PLINK_FILE:/root j5kim/dptdt:latest bash /opt/dpTDT/dpTDT.sh --prefix=/root/${PINK_FILE_PREFIX} --K=3 --eps=3
 ```
 
@@ -72,6 +73,7 @@ cd $FULLPATH_TO_PLINK_FILE
 wget https://github.com/mwgrassgreen/dpTDT/raw/master/example/sample.map
 wget https://github.com/mwgrassgreen/dpTDT/raw/master/example/sample.ped
 export PINK_FILE_PREFIX="sample"
+docker pull j5kim/dptdt:latest
 docker run -it -v $FULLPATH_TO_PLINK_FILE:/root j5kim/dptdt:latest bash /opt/dpTDT/testrun.sh --prefix=/root/${PINK_FILE_PREFIX} --K=3 --eps=3
 ```
 
