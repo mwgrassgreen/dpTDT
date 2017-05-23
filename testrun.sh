@@ -55,10 +55,15 @@ done
 # 1. formart change
 echo "Start formating: $(date)"
 bash shell/formatchange.sh $PREFIX
+WORKDIR=$(dirname $PREFIX)
+PREFIX=$(basename $PREFIX)
 echo "Finish formating: $(date)"
+
+
+
 # 2. main program
 echo "Start getting the output"
-Rscript R/testrun.R $K $eps
+Rscript R/testrun.R $K $eps $WORKDIR
 echo "Done and the result is the file dpTDT_output.txt"
 
 
@@ -68,12 +73,12 @@ cat example/desired_output.txt
 
 echo "================================================================"
 echo "Testrun output:"
-cat workspace/dpTDT_output.txt
+cat ${WORKDIR}/dpTDT_output.txt
 
 echo "================================================================"
 echo "Content difference between desired output and testrun output"
 echo "(empty diff content below means two output files are identical):"
-diff example/desired_output.txt workspace/dpTDT_output.txt
+diff example/desired_output.txt ${WORKDIR}/dpTDT_output.txt
 
 # return 0 if the test run output is equal to the desired output
 #        non-zero otherwise

@@ -18,7 +18,6 @@ OUTPUT_FILE=${WORKDIR}/tdt_count_data.txt
 ### programming detail
 ######################################################################################################################################################
 
-#cd ./workspace/
 
 # get the snp count
 snp_count=$(wc -l  ${PLINK_PREFIX_FULLPATH}.map | awk '{print $1}')

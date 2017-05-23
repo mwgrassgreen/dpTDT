@@ -25,16 +25,21 @@
 #                  output ---- a matrix containing top K most signiificant SNPs under DP
 #                                      and utility for the selected DP TDT method
 #------------------------------------------------------------------------------------------------------------------------------------------------
-
+# parge arguments
 args = commandArgs(trailingOnly=TRUE)
-source("R/dpTDT_fn.R")
-file.name = "workspace/tdt_count_data.txt"
-
 K = as.numeric(args[1]);
 eps = as.numeric(args[2]);
-DP.method.name = c("lap.stats", "exp.stats", "exp.shd.apprx") 
+tdtCountFile = paste( args[3], "/tdt_count_data.txt", sep="" )
 
-result = DP.TDT.topKsnp.fn(file.name, K=K, eps=eps, DP.method.name=DP.method.name, B=20)
-write.table(result, file="workspace/dpTDT_output.txt", quote=F)
+# load functions
+source("R/dpTDT_fn.R")
+
+# run core differentially private TDT algorithm 
+DP.method.name = c("lap.stats", "exp.stats", "exp.shd.apprx") 
+result = DP.TDT.topKsnp.fn(tdtCountFile, K=K, eps=eps, DP.method.name=DP.method.name, B=20)
+
+# write to a file
+outfile = paste( args[3], "/dpTDT_output.txt", sep="" )
+write.table(result, file=outfile, quote=F)
 
 

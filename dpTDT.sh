@@ -55,10 +55,14 @@ done
 # 1. formart change
 echo "Start formating: $(date)"
 bash shell/formatchange.sh $PREFIX
+WORKDIR=$(dirname $PREFIX)
+PREFIX=$(basename $PREFIX)
 echo "Finish formating: $(date)"
+
+
 # 2. main program
 echo "Start getting the output"
-Rscript R/dpTDT.R $K $eps
+Rscript R/dpTDT.R $K $eps $WORKDIR
 echo "Done and the result is the file dpTDT_output.txt"
 
 
