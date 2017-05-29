@@ -1,7 +1,7 @@
 # dpTDT
 
 ## Introduction
-dpTDT is a software to implement differential private (DP) mechanisms on transmission disequilibrium test (TDT) in genome-wide association analysis (GWAS), based on the paper "Mechanisms to Protect the Privacy of Families when Using the Transmission Disequilibrium Test in Genome-Wide Association Studies". Please contact <mengw1@stanford.edu> for bugs.
+dpTDT is a software to implement differential private (DP) mechanisms on transmission disequilibrium test (TDT) in genome-wide association analysis (GWAS), based on the paper "Mechanisms to Protect the Privacy of Families when Using the Transmission Disequilibrium Test in Genome-Wide Association Studies". Please contact <mengw1@stanford.edu> for general bugs and <j5kim@ucsd.edu> for Docker imagas. 
 
 ## Setup
 ### Dependence 
@@ -17,21 +17,21 @@ dpTDT is a software to implement differential private (DP) mechanisms on transmi
 `chmod a+x dpTDT.sh`
 `chmod a+x ./shell/formatchange.sh`
 
-# Usage 
+## Usage 
 	./dpTDT.sh  --prefix --K --eps
 
 
-# Options
+### Options
   --prefix=path/prefix\_of\_map\_ped\_files The path of the .map and .ped files added the file prefix where the .map and .ped files are the input data in PLINK format.
   
   --K=number\_snp    The number of most significant SNPs to output.
   
   --eps=privacy\_budget 	The privacy budget (recommend eps <=3 and for large dataset to set eps smaller).
   
-# Example
+### Example
   ./dpTDT.sh  --prefix=./example/sample --K=3 --eps=3
 
-# Output
+## Output
  The output is the selected top K most significant SNPs under DP from the methods
    (1) the Laplace mecnanism based on the test statistic (2) the exponential mechanism based on
    the test statistic and (3) the exponential mechanism based on the shortest Hamming distance scores
@@ -110,9 +110,6 @@ export PINK_FILE_PREFIX="sample"
 docker pull j5kim/dptdt:latest
 docker run -it -v $FULLPATH_TO_PLINK_FILE:/root j5kim/dptdt:latest bash /opt/dpTDT/testrun.sh --prefix=/root/${PINK_FILE_PREFIX} --K=3 --eps=3
 ```
-
-
-
 
 
 
