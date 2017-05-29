@@ -1,3 +1,8 @@
+# File: functions for dpTDT
+# Author: Meng Wang (Stanford University)
+# Email : mengw1@stanford.edu
+# Date  : May 2017
+
 
 ############ to get test statistics
 stats = function(D) {
