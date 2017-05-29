@@ -54,11 +54,11 @@ while test -n "${1}"; do
 done
 #---------#---------#---------#---------#---------#---------#---------#---------
 # 1. formart change
-echo "Start formating: $(date)."
+echo "Start formatting: $(date)."
 bash shell/formatchange.sh $PREFIX
 WORKDIR=$(dirname $PREFIX)
 PREFIX=$(basename $PREFIX)
-echo "Finish formating: $(date)."
+echo "Finish formatting: $(date)."
 
 
 # 2. main program
