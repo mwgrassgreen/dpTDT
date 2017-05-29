@@ -13,8 +13,8 @@ Usage:
 	./dpTDT.sh --prefix  --K --eps
 #---------#---------#---------#---------#---------#---------#---------#---------
 Options:
-  --prefix=path/prefix_of_map_ped_files The path of the .map and .ped files added the file prefix where the .map and .ped files are the input data in PLINK format.
-
+  --prefix=path/prefix_of_map_ped_files The path of the .map and .ped files added the file prefix 
+  where the .map and .ped files are the input data in PLINK format.
   --K=number_snp    The number of most significant SNPs to output.
   --eps=privacy_budget 	The privacy budget (recommend eps <=3 and for large dataset to set eps smaller).
 For the example data: 
