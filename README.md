@@ -4,7 +4,7 @@
 dpTDT is a software to implement differential private (DP) mechanisms on transmission disequilibrium test (TDT) in genome-wide association analysis (GWAS), based on the paper "Mechanisms to Protect the Privacy of Families when Using the Transmission Disequilibrium Test in Genome-Wide Association Studies". Please contact <mengw1@stanford.edu> for bugs. 
 
 ## Setup
-### Dependencies 
+### Dependence
 * [R](https://www.r-project.org/) (version >= 3.3.0)
 
 
@@ -15,21 +15,21 @@ dpTDT is a software to implement differential private (DP) mechanisms on transmi
 2. Add execute permissions for [dpTDT.sh](https://github.com/mwgrassgreen/dpTDT/blob/master/dpTDT.sh):     
 `cd dpTDT`    
 `chmod a+x dpTDT.sh`
-`chmod a+x ./code/formatchange.sh`
+`chmod a+x ./shell/formatchange.sh`
 
 # Usage 
 	./dpTDT.sh  --prefix --K --eps
 
 
 # Options
-  --prefix=prefix\_of\_map\_ped\_files The file name of the .map and .ped.
+  --prefix=path/prefix\_of\_map\_ped\_files The path of the .map and .ped files added the file prefix.
   
   --K=number\_snp    The number of most significant SNPs to output.
   
   --eps=privacy\_budget 	The privacy budget (recommend eps <=3 and for large dataset to set eps smaller).
   
 # Example
-  ./dpTDT.sh  --prefix=sample --K=3 --eps=3
+  ./dpTDT.sh  --prefix=./example/sample --K=3 --eps=3
 
 # Output
  The output is the selected top K most significant SNPs under DP from the methods
@@ -38,7 +38,7 @@ dpTDT is a software to implement differential private (DP) mechanisms on transmi
    where the scores are calculated from the approximation algorithm. The utility based on 20 repeats
    for each method is also listed.
    
-## Simple run with Docker in 3 steps
+## Another option--running with Docker in 3 steps
 1. Prepare the PLINK format data in a local computer directory (replace sample.ped and sample.map with your own PLINK file names). Display PLINK data structure with selected rows
 (with head command) and columns (with cut command). For a test run, use the [sample TDT data in PLINK format](https://github.com/mwgrassgreen/dpTDT/tree/master/data).
 ```bash
