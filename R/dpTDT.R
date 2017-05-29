@@ -17,7 +17,7 @@
 #                 eps ------ privacy budget
 #                            Default: 1 
 #                 DP.method.name ------ the name of DP TDT mechanism
-#                                           Options: "lap.stats", "exp.stats", "exp.shd.apprx", "exp.shd.exact", "lap.pval", "lap.pval.trunc"
+#                                           Options: "lap.stats", "exp.stats", "exp.shd.apprx", "lap.pval", "lap.pval.trunc"
 #                                          Default:  c("lap.stats", "exp.stats", "exp.shd.apprx") 
 #                 B ------ the repeat number to evaluate utility
 #                              Default: 20 
